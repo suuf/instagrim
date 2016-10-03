@@ -21,27 +21,28 @@
         </header>
         <nav>
             <ul>
-
-               
                 <li><a href="upload.jsp">Upload</a></li>
-                    <%
-                        
+                    
+                            <% 
                         LoggedIn lg = (LoggedIn) session.getAttribute("LoggedIn");
-                        if (lg != null) {
+                        if (lg != null)
+                        {
                             String UserName = lg.getUsername();
-                            if (lg.getlogedin()) {
-                    %>
+                            if (lg.getlogedin())
+                            {%>
 
-                <li><a href="/Instagrim/Images/<%=lg.getUsername()%>">Your Images</a></li>
-                    <%}
-                            }else{
-                                %>
-                 <li><a href="register.jsp">Register</a></li>
-                <li><a href="login.jsp">Login</a></li>
-                <%
-                                        
-                            
-                    }%>
+                            <li><a href="/Instagrim/Images/<%=lg.getUsername()%>">Your Images</a></li>
+                            <li><a href="/Instagrim/profile/<%=lg.getUsername()%>">Your Profile</a></li>
+                                
+                            <%}
+                         }else
+                         {
+                            %>
+                               <li><a href="register.jsp">Register</a></li>
+                               <li><a href="login.jsp">Login</a></li>
+                         <%            
+                         }
+                         %>
             </ul>
         </nav>
         <footer>
